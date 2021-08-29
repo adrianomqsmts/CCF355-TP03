@@ -1,5 +1,4 @@
 import controller.connect as conn
-import json
 
 
 def login(name, password):
@@ -11,7 +10,6 @@ def login(name, password):
     var = (name, password, )
 
     mycursor.execute(sql, var)
-
     result = mycursor.fetchone()
 
     return result

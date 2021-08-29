@@ -31,7 +31,7 @@ def client(host='localhost', port=8082, data=None):
         # amount_received = 0
         # amount_expected = len(message)
         # while amount_received < amount_expected:
-        data = sock.recv(300)
+        data = sock.recv(3000)
             # amount_received += len(data)
         print("Received: %s" % data)
     except socket.error as e:
@@ -41,7 +41,8 @@ def client(host='localhost', port=8082, data=None):
     finally:
         print("Closing connection to the server")
         sock.close()
-        if(data):
-            return 1
+        data = json.loads(data)
+        if(data['authenticated']):
+            return data
         else:
             return 0

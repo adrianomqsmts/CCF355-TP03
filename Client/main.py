@@ -61,16 +61,18 @@ if __name__ == '__main__':
             senha = self.senha.get()
 
             data = {
+                'function': '0',
                 'name': usuario,
                 'password': senha
             }
 
             out = clt.client(data=data)
 
-            if out:
-                self.mensagem["text"] = "Autenticado"
+            if not out:
+                self.mensagem["text"] = 'Login Inválido'
             else:
-                self.mensagem["text"] = "Erro na autenticação"
+                self.mensagem["text"] = 'Login VÁLIDO'
+
 
 
     root = Tk()

@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2a4f551-cd32-4cb9-ba0d-ed24f9640261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/Client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/controller/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/controller/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/view/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/controller/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/controller/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-script.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
