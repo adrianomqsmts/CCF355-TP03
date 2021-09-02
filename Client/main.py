@@ -1,82 +1,40 @@
 import controller.client as clt
 from tkinter import *
-
+import view.login as vl
+import  view.singin as vs
+import  view.album as al
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    # clt.client()
-
-    class Application:
-        def __init__(self, master=None):
-            self.fontePadrao = ("Arial", "10")
-            self.primeiroContainer = Frame(master)
-            self.primeiroContainer["pady"] = 10
-            self.primeiroContainer.pack()
-
-            self.segundoContainer = Frame(master)
-            self.segundoContainer["padx"] = 20
-            self.segundoContainer.pack()
-
-            self.terceiroContainer = Frame(master)
-            self.terceiroContainer["padx"] = 20
-            self.terceiroContainer.pack()
-
-            self.quartoContainer = Frame(master)
-            self.quartoContainer["pady"] = 20
-            self.quartoContainer.pack()
-
-            self.titulo = Label(self.primeiroContainer, text="Dados do usuário")
-            self.titulo["font"] = ("Arial", "10", "bold")
-            self.titulo.pack()
-
-            self.nomeLabel = Label(self.segundoContainer, text="Nome", font=self.fontePadrao)
-            self.nomeLabel.pack(side=LEFT)
-
-            self.nome = Entry(self.segundoContainer)
-            self.nome["width"] = 30
-            self.nome["font"] = self.fontePadrao
-            self.nome.pack(side=LEFT)
-
-            self.senhaLabel = Label(self.terceiroContainer, text="Senha", font=self.fontePadrao)
-            self.senhaLabel.pack(side=LEFT)
-
-            self.senha = Entry(self.terceiroContainer)
-            self.senha["width"] = 30
-            self.senha["font"] = self.fontePadrao
-            self.senha["show"] = "*"
-            self.senha.pack(side=LEFT)
-
-            self.autenticar = Button(self.quartoContainer)
-            self.autenticar["text"] = "Autenticar"
-            self.autenticar["font"] = ("Calibri", "8")
-            self.autenticar["width"] = 12
-            self.autenticar["command"] = self.verificaSenha
-            self.autenticar.pack()
-
-            self.mensagem = Label(self.quartoContainer, text="", font=self.fontePadrao)
-            self.mensagem.pack()
-
-        # Método verificar senha
-        def verificaSenha(self):
-            usuario = self.nome.get()
-            senha = self.senha.get()
-
-            data = {
-                'function': '0',
-                'name': usuario,
-                'password': senha
-            }
-
-            out = clt.client(data=data)
-
-            if not out:
-                self.mensagem["text"] = 'Login Inválido'
-            else:
-                self.mensagem["text"] = 'Login VÁLIDO'
 
 
+if __name__ == '__main__':    # clt.client()
+    user = None
+    print('Iniciando a aplicação...')
+    while True:  # WHILE LOGIN
+        option = input("1 - login | 2 - Criar conta | 0 - Sair: ")
+        if option == '1':
+            response = vl.loginview()
+            if response:
+                user = response  # Armazenar os dados do usuário
+                while True:  # WHILE menu principal
+                    option = input("1 - Álbum | 2 - Comprar | 3 - Vender | 4 - Trocar | 0 - Sair: ")
+                    if option == '1':
+                        response = al.albumview(user)
 
-    root = Tk()
-    Application(root)
-    root.mainloop()
+                        pass
+                    elif option == '2':
+                        pass
+                    elif option == '3':
+                        pass
+                    elif option == '4':
+                        pass
+                    elif option == '0':
+                        user = None  # limpar os dados do usuário
+                        break
+                    else:
+                        print('Opção inválida, tente novamente...')
+        elif option == '2':
+            vs.singinview()
+        else:
+            break
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
