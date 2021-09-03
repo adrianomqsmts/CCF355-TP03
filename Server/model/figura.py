@@ -2,6 +2,8 @@ import connect as conn
 from random import randint
 
 
+
+
 def buy(id_user):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
@@ -15,6 +17,7 @@ def buy(id_user):
         addCard(id_user, cards)
         result = []
         show(cards, result)
+        result.append(str(value-20))
 
     else:
         result = {
@@ -73,3 +76,5 @@ def show(cards, result):
         var = (cards[i],)
         mycursor.execute(sql, var)
         result.append(mycursor.fetchone())
+
+

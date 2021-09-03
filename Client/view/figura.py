@@ -4,16 +4,19 @@ import controller.client as clt
 
 def figureview(user):
     response = _figure(user)
+    balance = response[3]
+    del response[3]
 
     if response:
         print('\n ------------ Figurinhas Adquiridas ------------------')
         print("ID | NOME | RARIDADE | ")
         for figure in response:
             print(figure['idFigure'], '|', figure['name'], '|', figure['rarity'])
+        print('seu novo saldo é de', balance, "moedas")
         print()
         return 1
     else:
-        print('Lamentamos, mas não foi possível encontrar o álbum')
+        print('Não foi possivel fazer a compra saldo insuficiente')
         return None
 
 
