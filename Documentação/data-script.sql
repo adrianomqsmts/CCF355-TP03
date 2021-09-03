@@ -8,26 +8,56 @@ INSERT INTO `onefigure`.`usuario` (`name`, `password`) VALUES ('beltrano', 'belt
 
 -- Inserindo os dados das cartas
 
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Luffy 01', 'COMUM', 'img/luffy01.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Luffy 02', 'COMUM', 'img/luffy02.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Luffy 03', 'COMUM', 'img/luffy03.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Luffy 04', 'RARA', 'img/luffy04.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Luffy 05', 'ÉPICA', 'img/luffy05.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Zoro 01', 'COMUM', 'img/zoro01.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Zoro 02', 'COMUM', 'img/zoro02.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Zoro 03', 'COMUM', 'img/zoro03.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('zoro 04', 'RARA', 'img/zoro04.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Zoro 05', 'ÉPICA', 'img/zoro05.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sanji 01', 'COMUM', 'img/sanji01.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sanji 02', 'COMUM', 'img/sanji02.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sanji 03', 'COMUM', 'img/sanji03.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sanji 04', 'RARA', 'img/sanji04.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sanji 05', 'ÉPICA', 'img/sanji05.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami 01', 'RARA', 'img/nami01.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami 02', 'RARA', 'img/nami02.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami 03', 'RARA', 'img/nami03.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami 04 ', 'ÉPICA', 'img/nami04.png');
-INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami 05', 'ÉPICA', 'img/nami05.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Monkey D. Luffy', 'RARA', 'Monkey D Luffy.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Vismoke Sanji', 'RARA', 'Sanji.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Roronoa Zoro', 'RARA', 'Zoro.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Corazon', 'COMUM', 'Corazon.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Monkey D. Garp', 'RARA', 'Monkey D Garp.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Charlotte Katakuri', 'RARA', 'Charlotte Katakuri.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Edward Newgate', 'ÉPICA', 'Edward Newgate.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sabo', 'COMUM', 'Sabo.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Shanks', 'ÉPICA', 'Shanks.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Gol D. Roger', 'ÉPICA', 'Gol D Roger.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Portgas D. Ace', 'COMUM', 'Portgas D Ace.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Silvers Rayleigh', 'RARA', 'Silvers Rayleigh.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Brook', 'COMUM', 'Brook.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Tony Tony Chopper', 'COMUM', 'Tony Tony Chopper.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Aokiji', 'RARA', 'Aokij.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Eustass Kid', 'COMUM', 'Eustass Kid.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Bartolomeo', 'COMUM', 'Bartolomeo.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Affe D. Drache', 'COMUM', 'Affe D. Drache.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Franky', 'COMUM', 'Franky.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Donquixote Doflamingo', 'RARA', 'Donquixote Doflamingo.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Boa Hancock', 'RARA', 'Boa Hancock.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Vinsmoke Reiju', 'COMUM', 'Vinsmoke Reiju.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Marco the Phoenix', 'COMUM', 'Marco the Phoenix.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Usopp', 'COMUM', 'Usopp.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nico Robin', 'COMUM', 'Nico Robin.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Zeff', 'COMUM', 'Zeff.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Crocodile', 'COMUM', 'Crocodile.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Smoker', 'COMUM', 'Smoker.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Bentham', 'COMUM', 'Bentham.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Emporio Ivankov', 'COMUM', 'Emporio Ivankov.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nekomamushi', 'COMUM', 'Nekomamushi.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Bartholomew Kuma', 'COMUM', 'Bartholomew Kuma.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Kizaru', 'RARA', 'Kizaru.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Rob Lucci', 'COMUM', 'Rob Lucci.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Juracule Mihawk', 'COMUM', 'Juracule Mihawk.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Cavendish', 'COMUM', 'Cavendish.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Perona', 'COMUM', 'Perona.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Benn Beckman', 'RARA', 'Benn Beckman.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Viola', 'COMUM', 'Viola.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Bepo', 'COMUM', 'Bepo.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Foxfire Kin\'emon', 'COMUM', 'Foxfire Kin\'emon.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nefertari Vivi', 'COMUM', 'Nefertari Vivi.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Caesar Clown', 'COMUM', 'Caesar Clown.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Basil Hawkins', 'COMUM', 'Basil Hawkins.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Kaido', 'COMUM', 'Kaido.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Eneru', 'COMUM', 'Eneru.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sengoku', 'COMUM', 'Sengoku.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami', 'COMUM', 'Nami.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Buggy', 'RARA', 'Buggy.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Carrot', 'COMUM', 'Carrot.png');
 
 
 -- Preenchendo o Álbum dos Jogadores

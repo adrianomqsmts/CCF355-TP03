@@ -1,6 +1,6 @@
-import usuario as user
-import album as album
-import figura as figure
+import model.usuario as user
+import model.album as album
+import model.figura as figure
 import json
 import socket
 from threading import Thread
