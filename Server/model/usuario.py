@@ -1,4 +1,4 @@
-import controller.connect as conn
+import connect as conn
 
 
 def login(name, password):

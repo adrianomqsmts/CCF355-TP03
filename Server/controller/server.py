@@ -1,5 +1,6 @@
-import model.usuario as user
-import model.album as album
+import usuario as user
+import album as album
+import figura as figure
 import json
 import socket
 from threading import Thread
@@ -52,8 +53,10 @@ class Servidor:
             return resp
         elif function == '1':  # Vender Cartas msg = (action, idUser, idCarta, quantidade)
             return 0
-        elif function == '2':  # Comprar Carta msg = (action, idUser, idCarta, quantidade)
-            return 0
+        elif function == 2:  # Comprar Carta msg = (action, idUser, idCarta, quantidade)
+            idUser = data['idUser']
+            resp = self._buy(idUser)
+            return resp
         elif function == '3':  # Trocar Carta msg = (action, idUser, idCarta, quantidade)
             return 0
         elif function == '4':  # Anunciar Carta msg = (action, idUser, idCarta, quantidade)
@@ -113,6 +116,17 @@ class Servidor:
 
     def _album(self, idUser):
         database = album.show(id_user=idUser)
+        if database:
+            result = database
+        else:
+            result = {
+                'response': False,
+            }
+        data = json.dumps(result)  # convertendo para dicionário
+        return data
+
+    def _buy(self, idUser):
+        database = figure.buy(idUser)
         if database:
             result = database
         else:

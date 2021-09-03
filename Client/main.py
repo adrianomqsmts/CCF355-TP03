@@ -1,12 +1,14 @@
 import controller.client as clt
 from tkinter import *
 import view.login as vl
-import  view.singin as vs
-import  view.album as al
+import view.singin as vs
+import view.album as al
+import view.figura as fg
+
 # Press the green button in the gutter to run the script.
 
 
-if __name__ == '__main__':    # clt.client()
+if __name__ == '__main__':  # clt.client()
     user = None
     print('Iniciando a aplicação...')
     while True:  # WHILE LOGIN
@@ -19,10 +21,14 @@ if __name__ == '__main__':    # clt.client()
                     option = input("1 - Álbum | 2 - Comprar | 3 - Vender | 4 - Trocar | 0 - Sair: ")
                     if option == '1':
                         response = al.albumview(user)
-
                         pass
                     elif option == '2':
-                        pass
+                        opt = int(input("Você deseja confirmar a compra ? (custo 20 moedas)\n"
+                                    "              1 - SIM | 2 - NÃO\n"))
+
+                        if opt != 1:
+                            continue
+                        response = fg.figureview(user)
                     elif option == '3':
                         pass
                     elif option == '4':
@@ -36,5 +42,3 @@ if __name__ == '__main__':    # clt.client()
             vs.singinview()
         else:
             break
-
-
