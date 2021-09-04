@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+import controller.connect as conn
+=======
 import connect as conn
 from datetime import datetime
 from random import randint
+>>>>>>> master
 
 
 def login(name, password):

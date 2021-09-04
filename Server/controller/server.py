@@ -1,6 +1,6 @@
-import usuario as user
-import album as album
-import figura as figure
+import model.usuario as user
+import model.album as album
+import model.figura as figure
 import json
 import socket
 from threading import Thread
@@ -60,10 +60,17 @@ class Servidor:
             idUser = data['idUser']
             resp = self._buy(idUser)
             return resp
-        elif function == '3':  # Trocar Carta msg = (action, idUser, idCarta, quantidade)
-            return 0
-        elif function == '4':  # Anunciar Carta msg = (action, idUser, idCarta, quantidade)
-            return 0
+        elif function == 3:  # Trocar Carta msg = (action, idUser, IdTrade)
+            idUser = data['idUser']
+            idTrade = data['idTrade']
+            resp = self._trade(idUser, idTrade)
+            return resp
+        elif function == 4:  # Anunciar Carta msg = (action, idUser, offer, taking)
+            idUser = data['idUser']
+            offer = data['offer']
+            taking = data['taking']
+            resp = self._createTrade(idUser, offer, taking)
+            return resp
         elif function == '5':  # Atualiar Cadastro msg = (action, idUser, name, password)
             return 0
         elif function == 6:  # Criar Conta msg = (action, name, password)
@@ -74,6 +81,9 @@ class Servidor:
         elif function == 7:  # Ver Album msg = (action, idUser)
             idUser = data['idUser']
             resp = self._album(idUser)
+            return resp
+        elif function == 8:  # Ver trocas disponíveis
+            resp = self._listTrade()
             return resp
         else:  # Mensagem inválida
             return -1
@@ -141,8 +151,26 @@ class Servidor:
         data = json.dumps(result)  # convertendo para dicionário
         return data
 
+<<<<<<< HEAD
+    def _createTrade(self, idUser, offer, taking):
+        database = figure.createTrade(idUser=idUser, offer=offer, taking=taking)
+        if database:
+            result = {
+                'response': True,
+            }
+        else:
+            result = {
+                'response': False,
+            }
+        data = json.dumps(result)  # convertendo para dicionário
+        return data
+
+    def _listTrade(self):
+        database = figure.listTrade()
+=======
     def _sell(self, idUser, idFigure):
         database = figure.sell(idUser, idFigure)
+>>>>>>> master
         if database:
             result = database
         else:
@@ -150,4 +178,23 @@ class Servidor:
                 'response': False,
             }
         data = json.dumps(result)  # convertendo para dicionário
+<<<<<<< HEAD
         return data
+
+
+    def _trade(self, idUser, idTrade):
+        database = figure.trade(idUser, idTrade)
+        if database:
+            result = {
+                'response': True,
+            }
+        else:
+            result = {
+                'response': False,
+            }
+        data = json.dumps(result)  # convertendo para dicionário
+        return data
+
+=======
+        return data
+>>>>>>> master

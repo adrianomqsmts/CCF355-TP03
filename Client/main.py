@@ -4,6 +4,9 @@ import view.login as vl
 import view.singin as vs
 import view.album as al
 import view.figura as fg
+import view.offer as of
+import view.anunciar as va
+import view.trade as vt
 
 # Press the green button in the gutter to run the script.
 
@@ -18,7 +21,7 @@ if __name__ == '__main__':  # clt.client()
             if response:
                 user = response  # Armazenar os dados do usuário
                 while True:  # WHILE menu principal
-                    option = input("1 - Álbum | 2 - Comprar | 3 - Vender | 4 - Trocar | 0 - Sair: ")
+                    option = input("1 - Álbum | 2 - Comprar | 3 - Vender | 4 - Menu de Trocas | 0 - Sair: ")
                     if option == '1':
                         response = al.albumview(user)
                         pass
@@ -34,7 +37,30 @@ if __name__ == '__main__':  # clt.client()
                         response = fg.figuresellview(user,opt)
                         pass
                     elif option == '4':
-                        pass
+                        while True:
+                            opt = int(input("1 - Anunciar | 2 - Ver Trocas | 3 - Trocar | 0 - Voltar: "))
+                            if opt == 1:
+                                offer = int(input("ID da figurinha oferecida: "))
+                                taking = int(input("ID da carta que quer receber em troca: "))
+                                of.offerview(user, offer, taking)
+                            elif opt == 2:
+                                va.anunciarview()
+                            elif opt == 3:
+                                id = input("Digite o código da troca: ")
+                                if id.isnumeric():
+                                    id = int(id)
+                                    opt = int(input("Você deseja confirmar a troca ?  1 - SIM | 2 - NÃO: "))
+
+                                    if opt != 1:
+                                        continue
+                                    vt.tradeview(user, id)
+                                else:
+                                    print('Opção inválida')
+                            elif opt == 0:
+                                break
+                            else:
+                                print('Opção inválida')
+
                     elif option == '0':
                         user = None  # limpar os dados do usuário
                         break
