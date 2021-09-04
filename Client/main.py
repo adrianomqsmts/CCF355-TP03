@@ -33,8 +33,15 @@ if __name__ == '__main__':  # clt.client()
                             continue
                         response = fg.figureview(user)
                     elif option == '3':
-                        opt = int(input("Digite o ID da figurinha que deseja vender: "))
-                        response = fg.figuresellview(user,opt)
+                        id = input("Digite o ID da figurinha que deseja vender: ")
+                        if id.isnumeric() and 1 <= int(id) <= 50:
+                            id = int(id)
+                            opt = int(input("Você deseja confirmar a venda ? 1 - SIM | 2 - NÃO: "))
+                            if opt != 1:
+                                continue
+                            response = fg.figuresellview(user, id)
+                        else:
+                            print('ID invalído')
                         pass
                     elif option == '4':
                         while True:

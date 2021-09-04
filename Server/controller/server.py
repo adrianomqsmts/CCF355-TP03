@@ -12,7 +12,7 @@ class Servidor:
     def __init__(self, host, port):
         self._host = host
         self._port = port
-        self._tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Criando o socket TCP
+        self._tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Criando o socket TCP
         self._tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     def start(self):
@@ -36,7 +36,7 @@ class Servidor:
             msg = con.recv(10000)  # Tamanho máximo da mensagem em bits
             msg = json.loads(msg)  # Convertendo os bytes para dicionário
             print(client, ' -> Solicitação: ', msg)
-            function = msg['function']   # Pegando o contexto da mensagem
+            function = msg['function']  # Pegando o contexto da mensagem
             output = self._controller(function=function, data=msg)  # atribuindo a solicitação
             print(client, ' <- Resposta: ', output)
             con.send(output.encode())  # Resposta ao cliente
@@ -87,7 +87,6 @@ class Servidor:
             return resp
         else:  # Mensagem inválida
             return -1
-        return 0
 
     def _login(self, name, password):
 
@@ -110,7 +109,7 @@ class Servidor:
                 'idUser': '',
                 'name': '',
                 'password': '',
-                #'idLastLogin': ''
+                # 'idLastLogin': ''
             }
         data = json.dumps(result)  # convertendo para dicionário
         return data
@@ -151,7 +150,6 @@ class Servidor:
         data = json.dumps(result)  # convertendo para dicionário
         return data
 
-<<<<<<< HEAD
     def _createTrade(self, idUser, offer, taking):
         database = figure.createTrade(idUser=idUser, offer=offer, taking=taking)
         if database:
@@ -167,10 +165,17 @@ class Servidor:
 
     def _listTrade(self):
         database = figure.listTrade()
-=======
+        if database:
+            result = database
+        else:
+            result = {
+                'response': False,
+            }
+        data = json.dumps(result)
+        return data
+
     def _sell(self, idUser, idFigure):
         database = figure.sell(idUser, idFigure)
->>>>>>> master
         if database:
             result = database
         else:
@@ -178,9 +183,7 @@ class Servidor:
                 'response': False,
             }
         data = json.dumps(result)  # convertendo para dicionário
-<<<<<<< HEAD
         return data
-
 
     def _trade(self, idUser, idTrade):
         database = figure.trade(idUser, idTrade)
@@ -194,7 +197,3 @@ class Servidor:
             }
         data = json.dumps(result)  # convertendo para dicionário
         return data
-
-=======
-        return data
->>>>>>> master

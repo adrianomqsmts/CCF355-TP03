@@ -1,4 +1,4 @@
-import controller.connect as conn
+import connect as conn
 from random import randint
 
 
@@ -15,11 +15,8 @@ def buy(id_user):
         addCard(id_user, cards)
         result = []
         show(cards, result)
-<<<<<<< HEAD
-=======
         result.append(str(value - 25))
 
->>>>>>> master
     else:
         result = {
             'response': False,
@@ -32,11 +29,7 @@ def buyAction(id_user, value):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
     sql = "UPDATE usuario SET balance = %s WHERE idUser = %s"
-<<<<<<< HEAD
-    var = (value - 20, id_user)
-=======
     var = (value - 25, id_user)
->>>>>>> master
     mycursor.execute(sql, var)
     mydb.commit()
     summon(cards)
@@ -45,7 +38,7 @@ def buyAction(id_user, value):
 
 def summon(cards):
     for i in range(3):
-        x = randint(1, 51)
+        x = randint(1, 50)
         cards.append(x)
 
 
@@ -96,7 +89,6 @@ def show(cards, result):
         result.append(mycursor.fetchone())
 
 
-<<<<<<< HEAD
 def verifyQuantity(idUser, idFigure):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
@@ -224,7 +216,6 @@ def trade(idUser, idTrade):
     else:
         return False
 
-=======
 def sell(id_user, id_figure):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
@@ -232,9 +223,14 @@ def sell(id_user, id_figure):
     var = (id_figure, id_user)
     mycursor.execute(sql, var)
     data = mycursor.fetchone()
-    quantity = data['quantity']
-    if data and quantity > 1:
-        result = sellAction(id_user, id_figure, quantity)
+    if data:
+        quantity = data['quantity']
+        if quantity > 1:
+            result = sellAction(id_user, id_figure, quantity)
+        else:
+            result = {
+                'response': False,
+            }
     else:
         result = {
             'response': False,
@@ -285,4 +281,3 @@ def getPrice(rarity):
         return 15
     elif rarity == "epic":
         return 25
->>>>>>> master

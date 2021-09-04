@@ -4,10 +4,9 @@ import controller.client as clt
 
 def figureview(user):
     response = _figure(user)
-    balance = response[3]
-    del response[3]
-
     if response:
+        balance = response[3]
+        del response[3]
         print('\n ------------ Figurinhas Adquiridas ------------------')
         print("ID | NOME | RARIDADE | ")
         for figure in response:

@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import controller.connect as conn
-=======
 import connect as conn
 from datetime import datetime
 from random import randint
->>>>>>> master
 
 
 def login(name, password):
@@ -22,11 +18,12 @@ def login(name, password):
     sql = "SELECT * FROM Usuario WHERE name = %s and password = %s"
     var = (name, password,)
     mycursor.execute(sql, var)
-    result.append(mycursor.fetchone())
-    if result:
+    temp = mycursor.fetchone()
+    if temp:
+        result.append(temp)
         date = str(result[0]['login'])
         date = date.split(" ")[0]
-        if date == now:
+        if date != now:
             idcard = dailySummon(result[0]['idUser'])
             result.append(show(idcard))
             showcard = {'showcard': 1}
@@ -38,8 +35,9 @@ def login(name, password):
                            'rarity': ''
                            })
             result.append(showcard)
-    registerDateLogin(name, now)
-    return result
+        registerDateLogin(name, now)
+        temp = result
+    return temp
 
 
 def create(name, password):
@@ -67,7 +65,7 @@ def registerDateLogin(name, now):
         minute = '0' + str(minute)
     if hour < 10:
         hour = '0' + str(hour)
-    clock = hour + ':' + str(minute) + ':00'
+    clock = str(hour) + ':' + str(minute) + ':00'
     now = now + ' ' + clock
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
@@ -78,7 +76,7 @@ def registerDateLogin(name, now):
 
 
 def dailySummon(id_user):
-    idcard = randint(1, 51)
+    idcard = randint(1, 50)
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
     sql = "SELECT * FROM album WHERE idFigure = %s and idUser = %s"
