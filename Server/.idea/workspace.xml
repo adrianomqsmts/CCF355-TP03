@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2a4f551-cd32-4cb9-ba0d-ed24f9640261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/view/anunciar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/view/offer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/view/trade.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/view/album.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/view/album.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/view/figura.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/view/figura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-model.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documentação/one-figure-script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentação/one-figure-script.sql" afterDir="false" />
-    </list>
+    <list default="true" id="e2a4f551-cd32-4cb9-ba0d-ed24f9640261" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
