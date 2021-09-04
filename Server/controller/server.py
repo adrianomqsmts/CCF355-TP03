@@ -51,8 +51,11 @@ class Servidor:
             # strdate = now.split(" ")[0]
             resp = self._login(name, password)
             return resp
-        elif function == '1':  # Vender Cartas msg = (action, idUser, idCarta, quantidade)
-            return 0
+        elif function == 1:  # Vender Cartas msg = (action, idUser, idCarta, quantidade)
+            idUser = data['idUser']
+            idFigure = data['idFigure']
+            resp = self._sell(idUser, idFigure)
+            return resp
         elif function == 2:  # Comprar Carta msg = (action, idUser, idCarta, quantidade)
             idUser = data['idUser']
             resp = self._buy(idUser)
@@ -127,6 +130,17 @@ class Servidor:
 
     def _buy(self, idUser):
         database = figure.buy(idUser)
+        if database:
+            result = database
+        else:
+            result = {
+                'response': False,
+            }
+        data = json.dumps(result)  # convertendo para dicionário
+        return data
+
+    def _sell(self, idUser, idFigure):
+        database = figure.sell(idUser, idFigure)
         if database:
             result = database
         else:
