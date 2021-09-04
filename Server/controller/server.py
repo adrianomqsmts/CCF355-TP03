@@ -51,8 +51,11 @@ class Servidor:
             # strdate = now.split(" ")[0]
             resp = self._login(name, password)
             return resp
-        elif function == '1':  # Vender Cartas msg = (action, idUser, idCarta, quantidade)
-            return 0
+        elif function == 1:  # Vender Cartas msg = (action, idUser, idCarta, quantidade)
+            idUser = data['idUser']
+            idFigure = data['idFigure']
+            resp = self._sell(idUser, idFigure)
+            return resp
         elif function == 2:  # Comprar Carta msg = (action, idUser, idCarta, quantidade)
             idUser = data['idUser']
             resp = self._buy(idUser)
@@ -89,14 +92,17 @@ class Servidor:
     def _login(self, name, password):
 
         database = user.login(name=name, password=password)
-
         if database:
             result = {
                 'response': True,
-                'idUser': database['idUser'],
-                'name': database['name'],
-                'password': database['password'],
-                #'idLastLogin' : result['idLastLogin']
+                'idUser': database[0]['idUser'],
+                'name': database[0]['name'],
+                'password': database[0]['password'],
+                'figureName': database[1]['name'],
+                'idFigure': database[1]['idFigure'],
+                'rarity': database[1]['rarity'],
+                'showcard': database[2]['showcard']
+                # 'idLastLogin': ''
             }
         else:
             result = {
@@ -106,7 +112,6 @@ class Servidor:
                 'password': '',
                 #'idLastLogin': ''
             }
-
         data = json.dumps(result)  # convertendo para dicionário
         return data
 
@@ -146,6 +151,7 @@ class Servidor:
         data = json.dumps(result)  # convertendo para dicionário
         return data
 
+<<<<<<< HEAD
     def _createTrade(self, idUser, offer, taking):
         database = figure.createTrade(idUser=idUser, offer=offer, taking=taking)
         if database:
@@ -161,6 +167,10 @@ class Servidor:
 
     def _listTrade(self):
         database = figure.listTrade()
+=======
+    def _sell(self, idUser, idFigure):
+        database = figure.sell(idUser, idFigure)
+>>>>>>> master
         if database:
             result = database
         else:
@@ -168,6 +178,7 @@ class Servidor:
                 'response': False,
             }
         data = json.dumps(result)  # convertendo para dicionário
+<<<<<<< HEAD
         return data
 
 
@@ -184,3 +195,6 @@ class Servidor:
         data = json.dumps(result)  # convertendo para dicionário
         return data
 
+=======
+        return data
+>>>>>>> master

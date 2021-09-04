@@ -26,13 +26,15 @@ if __name__ == '__main__':  # clt.client()
                         response = al.albumview(user)
                         pass
                     elif option == '2':
-                        opt = int(input("Você deseja confirmar a compra ? (custo 20 moedas)\n"
+                        opt = int(input("Você deseja confirmar a compra ? (custo 25 moedas)\n"
                                     "              1 - SIM | 2 - NÃO\n"))
 
                         if opt != 1:
                             continue
                         response = fg.figureview(user)
                     elif option == '3':
+                        opt = int(input("Digite o ID da figurinha que deseja vender: "))
+                        response = fg.figuresellview(user,opt)
                         pass
                     elif option == '4':
                         while True:

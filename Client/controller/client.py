@@ -16,7 +16,7 @@ def client(host='localhost', port=8082, data=None):
             message = json.dumps(data)
             # print("Enviando mensagem ao servidor: {}".format(message))
             sock.sendall(message.encode('utf-8'))  # Enviar mensagem para o servidor
-            response = sock.recv(3000)  # Receber a resposta do servidor
+            response = sock.recv(8000)  # Receber a resposta do servidor
             response = json.loads(response)  # Converter sring para dicionário
             # print("Mensagem recebida: {}".format(response))
             return response
