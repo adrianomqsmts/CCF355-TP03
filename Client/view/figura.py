@@ -17,7 +17,6 @@ def figureview(user):
         return None
 
 
-
 def _figure(user):
     data = {
         'function': 2,
