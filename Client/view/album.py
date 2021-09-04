@@ -7,9 +7,9 @@ def albumview(user):
 
     if response:
         print('\n ------------ ALBUM ------------------')
-        print("NOME | RARIDADE | QUANTIDADE")
+        print("ID | NOME | RARIDADE | QUANTIDADE")
         for figure in response:
-            print(figure['name'], '|', figure['rarity'], '|', figure['quantity'])
+            print(figure['idFigure'], '|', figure['name'], '|', figure['rarity'], '|', figure['quantity'])
         print()
         return 1
     else:
