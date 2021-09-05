@@ -16,7 +16,6 @@ def buy(id_user):
         result = []
         show(cards, result)
         result.append(str(value - 25))
-
     else:
         result = {
             'response': False,
@@ -79,6 +78,7 @@ def addFigure(idUser, idFigure):
         mycursor.execute(sql, var)
     mydb.commit()
 
+
 def show(cards, result):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
@@ -87,6 +87,15 @@ def show(cards, result):
         var = (cards[i],)
         mycursor.execute(sql, var)
         result.append(mycursor.fetchone())
+
+
+def showone(cards, result):
+    mydb = conn.connect()
+    mycursor = mydb.cursor(dictionary=True)
+    sql = "SELECT * FROM figure WHERE idFigure = %s"
+    var = (cards,)
+    mycursor.execute(sql, var)
+    result.append(mycursor.fetchone())
 
 
 def verifyQuantity(idUser, idFigure):
@@ -166,25 +175,24 @@ def listTrade():
 
 
 def findTrade(idTrade):
-
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
 
     sql = "SELECT * FROM Trade WHERE idTrade = %s"
-    var = (idTrade, )
+    var = (idTrade,)
 
     mycursor.execute(sql, var)
     result = mycursor.fetchone()
 
     return result
 
-def deleteTrade(idTrade):
 
+def deleteTrade(idTrade):
     mydb = conn.connect()
     mycursor = mydb.cursor(dictionary=True)
 
     sql = "DELETE FROM trade WHERE idTrade = %s"
-    var = (idTrade, )
+    var = (idTrade,)
 
     mycursor.execute(sql, var)
     mydb.commit()
@@ -215,6 +223,7 @@ def trade(idUser, idTrade):
             return False
     else:
         return False
+
 
 def sell(id_user, id_figure):
     mydb = conn.connect()
@@ -281,3 +290,27 @@ def getPrice(rarity):
         return 15
     elif rarity == "epic":
         return 25
+
+
+def verifyComplet(id_user):
+    mydb = conn.connect()
+    mycursor = mydb.cursor(dictionary=True)
+    sql = "SELECT * FROM album WHERE idUser = %s"
+    var = (id_user,)
+    mycursor.execute(sql, var)
+    data = mycursor.fetchall()
+    if len(data) == 50:
+        return 1
+    else:
+        return 0
+
+
+def addSpecialCard(id_user):
+    mydb = conn.connect()
+    mycursor = mydb.cursor(dictionary=True)
+    sql = "INSERT INTO album (idUser,idFigure,quantity) VALUES (%s, %s, %s)"
+    var = (id_user, 51, 1)
+    mycursor.execute(sql, var)
+    data = mycursor.fetchone()
+    mydb.commit()
+    return data
