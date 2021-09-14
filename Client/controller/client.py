@@ -4,12 +4,10 @@ import view
 
 
 def client(host='localhost', port=8082, data=None):
-
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Criando um socket TCP
     server_address = (host, port)  # Conectar ao servidor
     # print("Conectando ao servidor {} pela porta {}".format(server_address[0], server_address[1]))
     sock.connect(server_address)
-
     try:  # Enviar dados ao servidor
         if data:  # Verificar se Existe uma mensagem
             #  converter dicionário para string

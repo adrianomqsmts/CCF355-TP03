@@ -2,9 +2,9 @@ import json
 import controller.client as clt
 
 
-def loginview():
-    name = input('Nome: ')
-    password = input('Password: ')
+def loginview(name, password):
+    # name = input('Nome: ')
+    # password = input('Password: ')
     response = _login(name, password)
 
     if response:

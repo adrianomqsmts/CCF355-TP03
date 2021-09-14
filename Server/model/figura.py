@@ -284,11 +284,11 @@ def addBalance(id_user, id_figure):
 
 
 def getPrice(rarity):
-    if rarity == "comum":
+    if rarity.upper() == "COMUM":
         return 5
-    elif rarity == "rare":
+    elif rarity.upper() == "RARA":
         return 15
-    elif rarity == "epic":
+    elif rarity.upper() == "ÉPICA":
         return 25
 
 
