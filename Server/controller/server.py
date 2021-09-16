@@ -100,7 +100,8 @@ class Servidor:
                 'figureName': database[1]['name'],
                 'idFigure': database[1]['idFigure'],
                 'rarity': database[1]['rarity'],
-                'showcard': database[2]['showcard']
+                'showcard': database[2]['showcard'],
+                'balance': database[3]
                 # 'idLastLogin': ''
             }
         else:

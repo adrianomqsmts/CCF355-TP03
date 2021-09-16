@@ -20,6 +20,7 @@ def login(name, password):
     mycursor.execute(sql, var)
     temp = mycursor.fetchone()
     if temp:
+        value = showBalance(temp['idUser'])
         result.append(temp)
         date = str(result[0]['login'])
         date = date.split(" ")[0]
@@ -37,6 +38,7 @@ def login(name, password):
             result.append(showcard)
         registerDateLogin(name, now)
         temp = result
+        temp.append(value)
     return temp
 
 
@@ -103,3 +105,13 @@ def show(idcard):
     mycursor.execute(sql, var)
     data = mycursor.fetchone()
     return data
+
+def showBalance(id_user):
+    mydb = conn.connect()
+    mycursor = mydb.cursor(dictionary=True)
+    sql = "SELECT * FROM usuario WHERE idUser = %s"
+    var = (id_user,)
+    mycursor.execute(sql, var)
+    result = mycursor.fetchone()
+    value = result['balance']
+    return value

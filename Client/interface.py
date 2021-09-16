@@ -21,6 +21,7 @@ class Interface:
         self.frame3.pack()
         self.frame4 = Frame(root, bg="#565656")
         self.frame4.pack()
+        self.response = ''
         # MENU 1
         self.mylabel = Label(self.frame, text="Menu", font=("Comic Sans MS", 15, "bold"), pady=10, fg="white",
                              bg="#565656")
@@ -60,15 +61,15 @@ class Interface:
                              bg="#565656")
         self.album = Button(self.frame, text="Ver Album",
                             font=self.font, pady=10,
-                            width=30, command=self.albumview,
+                            width=30, command=lambda: self.albumview(),
                             bg="#5b8e7d")
         self.buy = Button(self.frame, text="Comprar Figuras",
                           font=self.font, pady=10,
-                          width=30, command=self.buyview,
+                          width=30, command=lambda: self.buyview(),
                           bg="#c1ddeb")
         self.sell = Button(self.frame, text="Vender Figuras",
                            font=self.font, pady=10,
-                           width=30, command=self.sellview,
+                           width=30, command=lambda: self.sellview(),
                            bg="#8cb369")
         self.trade = Button(self.frame, text="Trocar Figuras",
                             font=self.font, pady=10,
@@ -80,20 +81,27 @@ class Interface:
                             bg="#ff5c5c")
         # MENU 4
         self.usernametext2 = Label(self.frame, text="Username",
-                                  font=("Comic Sans MS", 13), pady=10,
-                                  fg="#dad7cd", bg="#565656")
+                                   font=("Comic Sans MS", 13), pady=10,
+                                   fg="#dad7cd", bg="#565656")
         self.usernameinput2 = Entry(self.frame, width=30, font=("Arial", "12"))
         self.passwordtext2 = Label(self.frame2, text="Senha",
-                                  font=("Comic Sans MS", 13), pady=10,
-                                  fg="#dad7cd", bg="#565656")
+                                   font=("Comic Sans MS", 13), pady=10,
+                                   fg="#dad7cd", bg="#565656")
         self.passwordinput2 = Entry(self.frame2, width=30, font=("Arial", "12"))
         self.singinsubmit = Button(self.frame3, text="Cadastrar",
                                    font=self.font, pady=10,
                                    width=10, command=lambda: self.submitSingin(),
                                    bg="#f4a259")
         self.msgerro2 = Label(self.frame4, text="Username ja cadastrado.", fg="red", font=self.font, bg="#565656")
-        self.msgerro3 = Label(self.frame4, text="Não deixe os campos em branco.", fg="red", font=self.font, bg="#565656")
-        self.msgaccept = Label(self.frame4, text="Usuário cadastrado com sucesso.", fg="green", font=self.font, bg="#565656")
+        self.msgerro3 = Label(self.frame4, text="Não deixe os campos em branco.", fg="red", font=self.font,
+                              bg="#565656")
+        self.msgaccept = Label(self.frame4, text="Usuário cadastrado com sucesso.", fg="green", font=self.font,
+                               bg="#565656")
+        self.inputid = Entry(self.frame2, width=5, font=("Arial", "12"))
+        self.msginvalid = Label(self.frame4, text="Não foi possivel fazer a venda, você não possui uma ou mais "
+                                                     "cópias dessa figurinha",
+                                                        bg="#565656", font=self.font, fg="red")
+        self.msgidinvalid = Label(self.frame4, text="ID Invalido", bg="#565656", font=self.font, fg="red")
 
     def menuLogin(self):
         self.openMenu2()
@@ -102,16 +110,100 @@ class Interface:
         self.openMenu4()
 
     def albumview(self):
-        pass
+        self.clearMenu()
+        root.state('zoomed')
+
 
     def buyview(self):
-        pass
+        self.clearMenu()
+        root.state('zoomed')
+        imagem1 = PhotoImage(file="view/img/booster.png")
+        w = Label(self.frame, image=imagem1)
+        w.imagem = imagem1
+        w.pack(pady=50)
+        buybuttom = Button(self.frame2, text="Comprar \n25 Coins", bg="#B8860B", pady=10, padx=30, font=self.font,
+                           command=lambda: self.buyFigure())
+        buybuttom.pack()
+        back3 = Button(self.frame3, text="Voltar",
+                       font=self.font, pady=10, padx=40, command=lambda: self.openMenu3(self.response),
+                       bg="#ff5c5c")
+        back3.pack()
 
     def sellview(self):
-        pass
+        self.clearMenu()
+        msgtitle = Label(self.frame, text="Digite o ID da carta que deseja vender:", fg="white",
+                         font=self.font, bg="#565656")
+        msgtitle.pack(pady=30)
+        self.inputid.pack()
+        sellbuttom = Button(self.frame2, text="Vender", bg="#5b8e7d", pady=2, padx=2, font=self.font,
+                            command=lambda: self.sellFigure())
+        sellbuttom.pack(pady=15)
+        back5 = Button(self.frame3, text="Voltar",
+                       font=self.font, pady=5, padx=5, command=lambda: self.openMenu3(self.response),
+                       bg="#ff5c5c")
+        back5.pack()
+
 
     def tradeview(self):
         pass
+
+    def sellFigure(self):
+        id = self.inputid.get()
+        if self.msgidinvalid or self.msginvalid:
+            self.msgidinvalid.pack_forget()
+            self.msginvalid.pack_forget()
+        if id.isnumeric() and 1 <= int(id) <= 50:
+            id = int(id)
+            response = fg.figuresellview(self.response, id)
+            if response:
+                msgidvalid = Label(self.frame4,
+                                   text="Figura " + response['name'] + " vendida por " + str(
+                                       response['price']) + "Coins",
+                                   bg="#565656", font=self.font, fg="#6AF117")
+
+                msgidvalid.pack()
+            else:
+
+                self.msginvalid.pack()
+        else:
+            self.msgidinvalid.pack()
+
+    def buyFigure(self):
+        response = fg.figureview(self.response)
+        self.clearMenu()
+        if response:
+            print(response)
+            for figure in response:
+                print("view/img/" + figure['path'])
+            img1 = PhotoImage(file="view/img/Monkey D Luffy.png")
+            img2 = PhotoImage(file="view/img/Sanji.png")
+            img3 = PhotoImage(file="view/img/Zoro.png")
+            img_list = [img1, img2, img3]
+            msg_label = Label(root, text="Figurinhas adquiridas no sorteio:", font=("Comic Sans MS", 15, "bold"),
+                              bg="#565656", fg="white")
+            msg_label.place(x=650, y=10)
+            msg2_label = Label(root, text="Figurinhas adquiridas no sorteio:", font=("Comic Sans MS", 15, "bold"),
+                               bg="#565656", fg="white")
+            msg2_label.place(x=650, y=10)
+            img1_label = Label(root, image=img_list[0])
+            img1_label.image = img_list[0]
+            img1_label.place(x=75, y=50)
+            img2_label = Label(root, image=img_list[1])
+            img2_label.image = img_list[1]
+            img2_label.place(x=575, y=50)
+            img3_label = Label(root, image=img_list[2])
+            img3_label.image = img_list[2]
+            img3_label.place(x=1075, y=50)
+            back4 = Button(self.frame3, text="Voltar",
+                           font=self.font, pady=10, padx=40,
+                           command=lambda: self.processLogin(self.response['name'],
+                                                             self.response['password']),
+                           bg="#ff5c5c")
+            back4.pack()
+        else:
+            msgerro4 = Label(self.frame3, text="Não foi possivel fazer a compra, saldo insuficiente", fg="red",
+                             font=self.font, bg="#565656")
+            msgerro4.pack(pady=5)
 
     def openMenu1(self):
         self.clearMenu()
@@ -133,9 +225,13 @@ class Interface:
     def openMenu3(self, response):
         self.clearMenu()
         name = response['name']
+        balance = response['balance']
         welcome = Label(self.frame, text="Bem-vindo " + name, fg="white",
                         font=("Comic Sans MS", 15, "bold"), bg="#565656")
         welcome.pack()
+        welcome = Label(self.frame2, text="Saldo: " + str(balance) + " COINS", fg="#6AF117",
+                        font=("Comic Sans MS", 15, "bold"), bg="#565656")
+        welcome.pack(pady=10)
         self.album.pack(pady=10)
         self.buy.pack(pady=10)
         self.sell.pack(pady=10)
@@ -172,6 +268,7 @@ class Interface:
             response = vl.loginview(name, password)
             if response:
                 if response:
+                    self.response = response
                     self.openMenu3(response)
             else:
                 self.msgerro.pack(pady=10)
@@ -199,6 +296,8 @@ class Interface:
             widgets.pack_forget()
         for widgets in self.frame4.winfo_children():
             widgets.pack_forget()
+        for widgets in root.winfo_children():
+            widgets.place_forget()
 
 
 root = Tk()

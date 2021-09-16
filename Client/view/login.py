@@ -13,6 +13,7 @@ def loginview(name, password):
             print('\n ------------ Figurinha Adquirida no Sorteio díario ------------------')
             print("ID | NOME | RARIDADE | ")
             print(response['idFigure'], '|', response['figureName'], '|', response['rarity'],'\n')
+        print(response)
         return response
     else:
         print('Nome e/ou senha inválidos')
