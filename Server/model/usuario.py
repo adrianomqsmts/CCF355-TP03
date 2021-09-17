@@ -33,7 +33,8 @@ def login(name, password):
             showcard = {'showcard': 0}
             result.append({'name': '',
                            'idFigure': '',
-                           'rarity': ''
+                           'rarity': '',
+                           'path': ''
                            })
             result.append(showcard)
         registerDateLogin(name, now)

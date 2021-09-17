@@ -22,6 +22,10 @@ class Interface:
         self.frame4 = Frame(root, bg="#565656")
         self.frame4.pack()
         self.response = ''
+        self.current = -1
+        self.showed = 0
+        self.image_list = []
+        self.quantity_list = []
         # MENU 1
         self.mylabel = Label(self.frame, text="Menu", font=("Comic Sans MS", 15, "bold"), pady=10, fg="white",
                              bg="#565656")
@@ -99,8 +103,8 @@ class Interface:
                                bg="#565656")
         self.inputid = Entry(self.frame2, width=5, font=("Arial", "12"))
         self.msginvalid = Label(self.frame4, text="Não foi possivel fazer a venda, você não possui uma ou mais "
-                                                     "cópias dessa figurinha",
-                                                        bg="#565656", font=self.font, fg="red")
+                                                  "cópias dessa figurinha",
+                                bg="#565656", font=self.font, fg="red")
         self.msgidinvalid = Label(self.frame4, text="ID Invalido", bg="#565656", font=self.font, fg="red")
 
     def menuLogin(self):
@@ -111,12 +115,88 @@ class Interface:
 
     def albumview(self):
         self.clearMenu()
-        root.state('zoomed')
+        self.current = -1
+        self.image_list = []
+        self.quantity_list = []
+        response = al.albumview(self.response)
+        for figure in response:
+            self.image_list.append(figure['path'])
+            self.quantity_list.append(str(figure['quantity']))
+        self.move(+1)
 
+    def move(self, delta):
+        self.clearMenu()
+        Button(root, text='Voltar Figuras', bg="#8cb369", font=self.font, command=lambda: self.move(-1)).place(x=650,
+                                                                                                               y=750)
+        Button(root, text='Proximas Figuras', bg="#f5be51", font=self.font).place(x=780, y=750)
+        Button(root, text='Sair', bg="#ff5c5c", font=self.font, command=lambda: self.openMenu3(self.response)).place(
+            x=930, y=750)
+        if delta > 0:
+            if len(self.image_list) - 1 > self.current:
+                self.current += delta
+                qtd = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                            fg="white")
+                qtd.place(x=250, y=710)
+                photo = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg1_label = Label(root, image=photo)
+                gimg1_label.image = photo
+                gimg1_label.place(x=50, y=20)
+                self.showed = 1
+            if len(self.image_list) - 1 > self.current:
+                self.current += delta
+                qtd2 = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                             fg="white")
+                qtd2.place(x=750, y=710)
+                photo2 = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg2_label = Label(root, image=photo2)
+                gimg2_label.image = photo2
+                gimg2_label.place(x=550, y=20)
+                self.showed += 1
+            if len(self.image_list) - 1 > self.current:
+                self.current += delta
+                qtd3 = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                             fg="white")
+                qtd3.place(x=1250, y=710)
+                photo3 = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg3_label = Label(root, image=photo3)
+                gimg3_label.image = photo3
+                gimg3_label.place(x=1050, y=20)
+                self.showed += 1
+        else:
+            if self.current >= 3:
+                self.current -= self.showed + 2
+                qtd = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                            fg="white")
+                qtd.place(x=250, y=710)
+                photo = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg1_label = Label(root, image=photo)
+                gimg1_label.image = photo
+                gimg1_label.place(x=50, y=20)
+                self.current -= delta
+                qtd2 = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                             fg="white")
+                qtd2.place(x=750, y=710)
+                photo2 = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg2_label = Label(root, image=photo2)
+                gimg2_label.image = photo2
+                gimg2_label.place(x=550, y=20)
+                self.current -= delta
+                qtd3 = Label(root, text="Quantidade: " + self.quantity_list[self.current], bg='#565656', font=self.font,
+                             fg="white")
+                qtd3.place(x=1250, y=710)
+                photo3 = PhotoImage(file="view/img/" + self.image_list[self.current])
+                gimg3_label = Label(root, image=photo3)
+                gimg3_label.image = photo3
+                gimg3_label.place(x=1050, y=20)
+                self.showed = 3
+        if self.current - 3 < 0:
+            Button(root, text='Voltar Figuras', bg="#8cb369", font=self.font).place(x=650, y=750)
+        if len(self.image_list) - 1 > self.current:
+            Button(root, text='Proximas Figuras', bg="#f5be51", font=self.font, command=lambda: self.move(+1)).place(
+                x=780, y=750)
 
     def buyview(self):
         self.clearMenu()
-        root.state('zoomed')
         imagem1 = PhotoImage(file="view/img/booster.png")
         w = Label(self.frame, image=imagem1)
         w.imagem = imagem1
@@ -142,7 +222,6 @@ class Interface:
                        font=self.font, pady=5, padx=5, command=lambda: self.openMenu3(self.response),
                        bg="#ff5c5c")
         back5.pack()
-
 
     def tradeview(self):
         pass
@@ -172,12 +251,9 @@ class Interface:
         response = fg.figureview(self.response)
         self.clearMenu()
         if response:
-            print(response)
-            for figure in response:
-                print("view/img/" + figure['path'])
-            img1 = PhotoImage(file="view/img/Monkey D Luffy.png")
-            img2 = PhotoImage(file="view/img/Sanji.png")
-            img3 = PhotoImage(file="view/img/Zoro.png")
+            img1 = PhotoImage(file="view/img/" + response[0]['path'])
+            img2 = PhotoImage(file="view/img/" + response[1]['path'])
+            img3 = PhotoImage(file="view/img/" + response[2]['path'])
             img_list = [img1, img2, img3]
             msg_label = Label(root, text="Figurinhas adquiridas no sorteio:", font=("Comic Sans MS", 15, "bold"),
                               bg="#565656", fg="white")
@@ -269,9 +345,23 @@ class Interface:
             if response:
                 if response:
                     self.response = response
-                    self.openMenu3(response)
+                    if response['showcard'] == 1:
+                        self.showfigure(response['path'])
+                    else:
+                        self.openMenu3(response)
             else:
                 self.msgerro.pack(pady=10)
+
+    def showfigure(self, path):
+        self.clearMenu()
+        text_label = Label(root, text="Figurinha Adquirida por login diario:", font=self.font, bg="#565656", fg="White")
+        text_label.place(x=650, y=10)
+        photo = PhotoImage(file="view/img/" + path)
+        simg_label = Label(root, image=photo)
+        simg_label.image = photo
+        simg_label.place(x=550, y=50)
+        backbtm = Button(root, text="Confirmar", font=self.font, bg="#c1ddeb", command=lambda : self.openMenu3(self.response))
+        backbtm.place(x=750, y=740)
 
     def processSingin(self, name, password):
         if self.msgerro2 or self.msgerro3 or self.msgaccept:
@@ -301,7 +391,7 @@ class Interface:
 
 
 root = Tk()
-root.geometry("600x500+250+100")
+root.geometry("1600x900")
 photo = PhotoImage(file='view/img/icon.png')
 root.iconphoto(False, photo)
 root.configure(bg="#565656")

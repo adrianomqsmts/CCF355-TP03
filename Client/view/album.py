@@ -18,7 +18,7 @@ def albumview(user):
             print("ID | NOME | RARIDADE")
             print(special['idFigure'], '|', special['name'], '|', special['rarity'])
         print()
-        return 1
+        return response[0]
     else:
         print('Lamentamos, mas não foi possível encontrar o álbum')
         return None
