@@ -1,4 +1,4 @@
-import connect as conn
+import controller.connect as conn
 from random import randint
 
 

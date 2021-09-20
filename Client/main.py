@@ -17,7 +17,9 @@ if __name__ == '__main__':  # clt.client()
     while True:  # WHILE LOGIN
         option = input("1 - login | 2 - Criar conta | 0 - Sair: ")
         if option == '1':
-            response = vl.loginview()
+            name = input('Nome: ')
+            password = input('Password: ')
+            response = vl.loginview(name=name, password=password)
             if response:
                 user = response  # Armazenar os dados do usuário
                 while True:  # WHILE menu principal
@@ -74,6 +76,8 @@ if __name__ == '__main__':  # clt.client()
                     else:
                         print('Opção inválida, tente novamente...')
         elif option == '2':
-            vs.singinview()
+            name = input('Nome: ')
+            password = input('Password: ')
+            vs.singinview(name=name, password=password)
         else:
             break

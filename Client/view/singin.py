@@ -5,7 +5,7 @@ import controller.client as clt
 def singinview(name, password):
     # name = input('Nome: ')
     # password = input('Password: ')
-    print(name,password)
+    print(name, password)
     response = _singin(name, password)
     print(response)
     if response:
