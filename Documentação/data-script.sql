@@ -58,6 +58,7 @@ INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Sengoku', '
 INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Nami', 'COMUM', 'Nami.png');
 INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Buggy', 'RARA', 'Buggy.png');
 INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Carrot', 'COMUM', 'Carrot.png');
+INSERT INTO `onefigure`.`figure` (`name`, `rarity`, `path`) VALUES ('Monkey D Dragon', 'ESPECIAL', 'Dragon.png');
 
 
 -- Preenchendo o Álbum dos Jogadores

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2a4f551-cd32-4cb9-ba0d-ed24f9640261" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/view/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/view/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/view/singin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/view/singin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

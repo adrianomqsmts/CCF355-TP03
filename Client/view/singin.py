@@ -7,7 +7,7 @@ def singinview(name, password):
     # password = input('Password: ')
     print(name, password)
     response = _singin(name, password)
-    print(response)
+    # print(response)
     if response:
         print('Conta criada com sucesso.')
         return response
