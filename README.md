@@ -13,7 +13,7 @@ Dentre as funcionalidades do sistema temos:
 
 ### 💻 Interface 
 
-Abaixo temos um exemplo de umas das telas do sistema, onde o usuário ganhou figurinhas através do login diário. 
+Abaixo temos um exemplo de umas das telas do sistema, onde o usuário ganhou figurinhas através do compra. 
 
 ![](readme/interface.png)
 
