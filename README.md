@@ -1,81 +1,77 @@
-# OneFigure
+# OneFigure - Sockets
 
 Trabalho prático da disciplina de Sistemas Distribuídos e Paralelos da 🏫 Universidade Federal de Viçosa - Campus Florestal. 
 
-Este trabalho teve como objetivo desenvolver um sistema de figurinhas de nossa escolha, neste caso do anime One Piece, usando API de Soquetes para comunicar entre o Cliente e o Servidor usando XML como formato de mensagem. 
+Este trabalho teve como objetivo desenvolver um sistema de figurinhas de nossa escolha, neste caso do anime One Piece, usando API de Soquetes (Sockets) para comunicar entre o Cliente e o Servidor usando XML como formato de mensagem. 
+
+Dentre as funcionalidades do sistema temos:
+
+- Criar e entrar na conta
+- Sorteio de figurinhas pelo login diário
+- Comprar, vender e visualizar figurinhas
+- Anunciar, ver e trocar figurinhas
+
+### 💻 Interface 
+
+Abaixo temos um exemplo de umas das telas do sistema, onde o usuário ganhou figurinhas através do login diário. 
+
+![](readme/interface.png)
+
+
+********************************************
+
 
 ## 🚀 Começando
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+O sistema foi desenvolvido em duas partes, a primeira o Servidor e a segunda o Cliente que conta com interface de texto com interação através do terminal e uma interface gráfica, onde o cliente pode interagir através de botões. 
 
-Consulte **Implantação** para saber como implantar o projeto.
+Para obter uma cópia deste projeto:
+
+```shell
+git clone https://github.com/adrianomqsmts/CCF355-TP03
+cd exemplo
+```
+
+Para iniciar o servidor:
+
+```shell
+ python Server\main.py
+```
+
+Para iniciar o Cliente padrão pelo terminal:
+
+```shell
+ python Client\main.py
+```
+
+Para iniciar o Cliente com interface Gráfica:
+
+```shell
+ python Client\interface.py
+```
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+As bibliotecas usadas neste projeto podem ser encontradas no arquivo "requirements.txt"
 
+```shell
+pip install -r requirements.txt 
 ```
-Dar exemplos
-```
-
-### 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
-
-```
-Dar exemplos
-```
-
-E repita:
-
-```
-Até finalizar
-```
-
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
-
-## ⚙️ Executando os testes
-
-Explicar como executar os testes automatizados para este sistema.
-
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+Ferramentas, linguagens e outras tecnologias usadas no desenvolvimento deste sistema.
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+* [PyCharm](https://www.jetbrains.com/pycharm/) - Ambiente de Desenvolvimento
+* [Git](https://git-scm.com/) - Controle de Versões
+* [MySQL](https://dev.mysql.com/doc/) - Banco de Dados
+* [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) - Ferramenta de Gráfica de Banco de Dados
+* [TKinter](https://docs.python.org/3/library/tkinter.html) - Biblioteca de Interface Python
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
+* **Desenvolvedor** - *Código e Documentação* - [Adriano](https://github.com/adrianomqsmts)
+* **Desenvolvedor** - *Código e Documentação* - [Eduardo](https://github.com/eduardovbe)
 
 ## 📄 Licença
 

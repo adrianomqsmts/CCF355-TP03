@@ -8,9 +8,6 @@ import view.offer as of
 import view.anunciar as va
 import view.trade as vt
 
-# Press the green button in the gutter to run the script.
-
-
 if __name__ == '__main__':  # clt.client()
     user = None
     print('Iniciando a aplicação...')
