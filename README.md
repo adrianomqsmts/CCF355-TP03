@@ -75,6 +75,6 @@ Ferramentas, linguagens e outras tecnologias usadas no desenvolvimento deste sis
 
 ## 📄 Licença
 
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
+Este projeto está sob a licença MIT License - veja o arquivo [LICENSE.md](https://github.com/adrianomqsmts/OneFigure-Sockets/blob/master/LICENSE) para detalhes.
 
 ---
