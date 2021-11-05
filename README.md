@@ -28,8 +28,8 @@ O sistema foi desenvolvido em duas partes, a primeira o Servidor e a segunda o C
 Para obter uma cópia deste projeto:
 
 ```shell
-git clone https://github.com/adrianomqsmts/CCF355-TP03
-cd exemplo
+git clone https://github.com/adrianomqsmts/OneFigure-Sockets
+cd OneFigure-Sockets
 ```
 
 Para iniciar o servidor:
